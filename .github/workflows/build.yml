@@ -18,8 +18,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B install --file roman-number/pom.xml
     - name: Test with JaCoCo
-      run: mvn test jacoco:report
+      run: mvn test jacoco:report --file roman-number/pom.xml
     - name: Report to Coveralls
       env:
         COVERALLS_REPO_TOKEN: ${{secrets.COVERALLS_REPO_TOKEN}}
-      run: mvn coveralls:report
+      run: mvn coveralls:report --file roman-number/pom.xml 
