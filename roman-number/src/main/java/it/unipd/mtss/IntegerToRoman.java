@@ -12,8 +12,18 @@ public class IntegerToRoman {
             throw new IllegalArgumentException("Number must be in 1-1000");
         }
 
-        String[] roman={"I","II","III","IV","V","VI","VII","VIII","IX","X"};
+        // Corrispondenza numeri romani - arabi 'speciali'
+        String[] roman = {"I", "IV", "V", "VI", "IX", "X"};
+        int[] arab = {1, 4, 5, 6, 9, 10};
+        StringBuilder result = new StringBuilder();
 
-        return roman[number-1];
+        for(int i=arab.length-1; i>=0; i--) {
+            while(number >= arab[i]) {
+                result.append(roman[i]);
+                number -= arab[i];
+            }
+        }
+
+        return result.toString();
     }
 }
