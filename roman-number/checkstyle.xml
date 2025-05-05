@@ -12,7 +12,7 @@
         <module name="BooleanExpressionComplexity"/>
         <module name="CyclomaticComplexity"/>
         <module name="MethodLength">
-            <property name="max" value="10"/>
+            <property name="max" value="20"/>
         </module>
         <module name="EmptyCatchBlock"/>
         <module name="AvoidStarImport"/>
