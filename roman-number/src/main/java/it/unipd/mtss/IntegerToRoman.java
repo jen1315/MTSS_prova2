@@ -7,7 +7,9 @@ package it.unipd.mtss;
 
 public class IntegerToRoman {
     public static String convert(int number){
-        // TODO
+        if(number <= 0 || number > 1000) {
+            throw new IllegalArgumentException("Number must be 1 to 1000");
+        }
         return null;
     }
 }
