@@ -11,7 +11,9 @@ public class IntegerToRoman {
         if(number <= 0 || number > 1000) {
             throw new IllegalArgumentException("Number must be in 1-1000");
         }
-        
-        return null;
+
+        String[] roman={"I","II","III","IV","V","VI","VII","VIII","IX","X"};
+
+        return roman[number-1];
     }
 }
