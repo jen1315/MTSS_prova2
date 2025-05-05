@@ -11,8 +11,9 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-     <maven.compiler.source>1.8</maven.compiler.source>
-     <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   
   <dependencies>
@@ -102,9 +103,9 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>com.github.hazendaz.maven</groupId>
+        <groupId>org.eluder.coveralls</groupId>
         <artifactId>coveralls-maven-plugin</artifactId>
-        <version>4.7.0</version>
+        <version>4.3.0</version>
         <configuration>
           <repoToken>${env.COVERALLS_REPO_TOKEN}</repoToken>
         </configuration>
