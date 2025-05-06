@@ -41,5 +41,9 @@ public class IntegerToRomanTest {
         assertEquals("LX", IntegerToRoman.convert(60));
         assertEquals("XC", IntegerToRoman.convert(90));
         assertEquals("C", IntegerToRoman.convert(100));
+
+        assertEquals("CC", IntegerToRoman.convert(200));
+        assertEquals("CD", IntegerToRoman.convert(400));
+        assertEquals("D", IntegerToRoman.convert(500));
     }
 }
