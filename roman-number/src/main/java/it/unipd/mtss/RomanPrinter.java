@@ -12,27 +12,38 @@ public class RomanPrinter {
     }
     */
 
-    public static String printAsciiArt(String romanNumber){
-      if(romanNumber=="") { 
+    private static String printAsciiArt(String romanNumber){
+      if(romanNumber=="") {
         throw new IllegalArgumentException("String can't be empty"); 
       }
-      String art[][] = new String[10][6];
+      String rm[][] = composeAscii(romanNumber);
+      String art = "";
+      
+      /* Accedi alla z riga di ogni w stringa in rm e concatenale.
+       * Vai a capo e continua così con le righe z successive.
+       */
+      for(int z=0; z<6; z++) {
+        for(int w=0; w<rm.length; w++) {
+          if(rm[w][z]!=null) {
+            art += rm[w][z];
+          }
+        }
+        art += "\n";
+      }
+      return art;
+    }
+
+    private static String[][] composeAscii(String romanNumber) {
+      String out[][] = new String[10][6];
       for(int i=0; i<romanNumber.length(); i++) {
         char c = romanNumber.charAt(i);
-        if(c=='I') { art[i]=printAscii_I(); }
-        else if(c=='V') { art[i]=printAscii_V(); }
-        else if(c=='X') { art[i]=printAscii_X(); }
-        else {
-            throw new IllegalArgumentException("String must be roman number"); 
+        switch(c) {
+          case 'I': out[i]=printAscii_I(); break;
+          case 'V': out[i]=printAscii_V(); break;
+          case 'X': out[i]=printAscii_X(); break;
+          default: 
+            throw new IllegalArgumentException("String must be roman number");
         }
-      }
-      String out = "";
-      for(int z=0; z<6; z++) {
-        for(int w=0; w<art.length; w++) {
-          if(art[w][z]==null) {out += "";}
-          else {out += art[w][z];}
-        }
-        out += "\n";
       }
       return out;
     }
