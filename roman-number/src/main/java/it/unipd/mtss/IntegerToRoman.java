@@ -15,6 +15,8 @@ public class IntegerToRoman {
         // Corrispondenza numeri romani - arabi 'speciali'
         String[] roman = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         int[] arab = {100, 90, 50, 40, 10, 9, 5, 4, 1};
+
+        //Per memorizzare il risultato
         StringBuilder result = new StringBuilder();
 
         for(int i=0; i<arab.length; i++) {
