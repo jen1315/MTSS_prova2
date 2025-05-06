@@ -13,8 +13,8 @@ public class IntegerToRoman {
         }
 
         // Corrispondenza numeri romani - arabi 'speciali'
-        String[] roman = {"I", "IV", "V", "VI", "IX", "X"};
-        int[] arab = {1, 4, 5, 6, 9, 10};
+        String[] roman = {"I", "IV", "V", "VI", "IX", "X", "XL", "L"};
+        int[] arab = {1, 4, 5, 6, 9, 10, 40, 50};
         StringBuilder result = new StringBuilder();
 
         for(int i=arab.length-1; i>=0; i--) {
