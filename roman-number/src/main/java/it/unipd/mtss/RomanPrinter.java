@@ -41,6 +41,7 @@ public class RomanPrinter {
           case 'I': out[i]=printAscii_I(); break;
           case 'V': out[i]=printAscii_V(); break;
           case 'X': out[i]=printAscii_X(); break;
+          case 'L': out[i]=printAscii_L(); break;
           default: 
             throw new IllegalArgumentException("String must be roman number");
         }
@@ -73,6 +74,15 @@ public class RomanPrinter {
                              "  >  <   " ,
                              " / /\\ \\  " ,
                              "/_/  \\_\\ " };
+    }
+
+    private static String[] printAscii_L() {
+        return new String[] {" _       ",
+                             "| |      ",
+                             "! |      ",
+                             "| |      ",
+                             "| |____  ",
+                             "|______| "};
     }
 
     /* Metodo accessore per test. Da rimuovere a release. */
