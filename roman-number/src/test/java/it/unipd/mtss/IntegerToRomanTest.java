@@ -29,5 +29,25 @@ public class IntegerToRomanTest {
         assertEquals("VIII", IntegerToRoman.convert(8));
         assertEquals("IX", IntegerToRoman.convert(9));
         assertEquals("X", IntegerToRoman.convert(10));
+
+        assertEquals("XV", IntegerToRoman.convert(15));
+        assertEquals("XIX", IntegerToRoman.convert(19));
+        assertEquals("XX", IntegerToRoman.convert(20));
+        assertEquals("XXIX", IntegerToRoman.convert(29));
+        assertEquals("XXX", IntegerToRoman.convert(30));
+        assertEquals("XL", IntegerToRoman.convert(40));
+        assertEquals("L", IntegerToRoman.convert(50));
+
+        assertEquals("LX", IntegerToRoman.convert(60));
+        assertEquals("XC", IntegerToRoman.convert(90));
+        assertEquals("C", IntegerToRoman.convert(100));
+
+        assertEquals("CC", IntegerToRoman.convert(200));
+        assertEquals("CD", IntegerToRoman.convert(400));
+        assertEquals("D", IntegerToRoman.convert(500));
+
+        assertEquals("DC", IntegerToRoman.convert(600));
+        assertEquals("CM", IntegerToRoman.convert(900));
+        assertEquals("M", IntegerToRoman.convert(1000));
     }
 }
