@@ -36,12 +36,12 @@ public class RomanPrinter {
     private static String[][] composeAscii(String romanNumber) {
       String out[][] = new String[10][6];
       for(int i=0; i<romanNumber.length(); i++) {
-        char c = romanNumber.charAt(i);
+        char c = Character.toUpperCase(romanNumber.charAt(i));
         switch(c) {
-          case 'I': out[i]=printAscii_I(); break;
-          case 'V': out[i]=printAscii_V(); break;
-          case 'X': out[i]=printAscii_X(); break;
-          case 'L': out[i]=printAscii_L(); break;
+          case 'I': out[i] = printAscii_I(); break;
+          case 'V': out[i] = printAscii_V(); break;
+          case 'X': out[i] = printAscii_X(); break;
+          case 'L': out[i] = printAscii_L(); break;
           default: 
             throw new IllegalArgumentException("String must be roman number");
         }
