@@ -13,18 +13,18 @@ public class RomanPrinter {
     */
 
     public static String printAsciiArt(String romanNumber){
-        if(romanNumber=="") { 
-            throw new IllegalArgumentException("Empty string"); 
+      if(romanNumber=="") { 
+        throw new IllegalArgumentException("String can't be empty"); 
+      }
+      char[] rm = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+      for(int i=0; i<romanNumber.length(); i++) {
+        char c = romanNumber.charAt(i);
+        for(int j=0; i<rm.length; j++) {
+          if(c!=rm[j]) {
+            throw new IllegalArgumentException("String must be roman number"); 
+          }
         }
-        char[] rm = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
-        for(int i=0; i<romanNumber.length(); i++) {
-            char c = romanNumber.charAt(i);
-            for(int j=0; i<rm.length; j++) {
-                if(c!=rm[j]) {
-                  throw new IllegalArgumentException("Number must be roman"); 
-                }
-            }
-        }
+      }
         return null;
     }
 
