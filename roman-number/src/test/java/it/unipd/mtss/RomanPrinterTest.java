@@ -17,6 +17,7 @@ public class RomanPrinterTest {
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("ABCD"));
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("1234"));
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("?!&/"));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("Vi I"));
     }
 
     @Test
@@ -188,13 +189,13 @@ public class RomanPrinterTest {
                      "| |  | | | |      | |      | |      ! |       \\ \\/ /   \\ \\/ /   \\ \\/ /   \\ \\  / /    | |     | |     | |   \n" +
                      "| |  | | | |      | |      | |      | |        >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
                      "| |__| | | |____  | |____  | |____  | |____   / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n"  +
-                     "|_____/   \\_____|  \\_____|  \\_____| |______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("DCCCLXXXVIII"));
+                     "|_____/   \\_____|  \\_____|  \\_____| |______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("dccclxxxviii"));
         assertEquals("  _____   __  __  __    __   _____   _____  __    __ \n" +
                      " / ____| |  \\/  | \\ \\  / /  / ____| |_   _| \\ \\  / / \n" +
                      "| |      | \\  / |  \\ \\/ /  | |        | |    \\ \\/ /  \n" +
                      "| |      | |\\/| |   >  <   | |        | |     >  <   \n" +
                      "| |____  | |  | |  / /\\ \\  | |____   _| |_   / /\\ \\  \n"  +
-                     " \\_____| |_|  |_| /_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("CMXCIX"));
+                     " \\_____| |_|  |_| /_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("CMxcIX"));
         assertEquals(" __  __  \n" +
                      "|  \\/  | \n" +
                      "| \\  / | \n" +
