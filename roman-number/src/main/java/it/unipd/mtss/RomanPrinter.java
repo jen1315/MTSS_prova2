@@ -33,7 +33,7 @@ public class RomanPrinter {
     }
 
     private static String[][] composeAscii(String romanNumber) {
-      String out[][] = new String[10][6];
+      String out[][] = new String[11][6];
       for(int i=0; i<romanNumber.length(); i++) {
         char c = Character.toUpperCase(romanNumber.charAt(i));
         switch(c) {
@@ -42,6 +42,7 @@ public class RomanPrinter {
           case 'X': out[i] = printAscii_X(); break;
           case 'L': out[i] = printAscii_L(); break;
           case 'C': out[i] = printAscii_C(); break;
+          case 'D': out[i] = printAscii_D(); break;
           default: 
             throw new IllegalArgumentException("String must be roman number");
         }
@@ -95,6 +96,15 @@ public class RomanPrinter {
                              "| |      ",
                              "| |____  ",
                              " \\_____| "};
+    }
+
+    private static String[] printAscii_D() {
+        return new String[] {" _____   " ,
+                             "|  __ \\  ",
+                             "| |  | | " ,
+                             "| |  | | " ,
+                             "| |__| | " ,
+                             "|_____/  "};
     }
 
     /* Metodo accessore per test. Da rimuovere a release. */
