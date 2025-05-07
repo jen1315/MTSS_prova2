@@ -118,4 +118,32 @@ public class RomanPrinterTest {
                      "| |____  \n" +
                      "|______| \n", RomanPrinter.printAsciiArtTest("L"));
     }
+
+    @Test
+    public void TestPrintAscii_to100() {
+        assertEquals(" _       __      __ \n" +
+                     "| |      \\ \\    / / \n" +
+                     "! |       \\ \\  / /  \n" +
+                     "| |        \\ \\/ /   \n" +
+                     "| |____     \\  /    \n" +
+                     "|______|     \\/     \n", RomanPrinter.printAsciiArtTest("LV"));
+        assertEquals(" _       __    __ __    __ __    __ __      __  _____   _____   _____  \n" +
+                     "| |      \\ \\  / / \\ \\  / / \\ \\  / / \\ \\    / / |_   _| |_   _| |_   _| \n" +
+                     "! |       \\ \\/ /   \\ \\/ /   \\ \\/ /   \\ \\  / /    | |     | |     | |   \n" +
+                     "| |        >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
+                     "| |____   / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n"  +
+                     "|______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("LXXXVIII"));
+        assertEquals("__    __   _____  \n" +
+                     "\\ \\  / /  / ____| \n" +
+                     " \\ \\/ /  | |      \n" +
+                     "  >  <   | |      \n" +
+                     " / /\\ \\  | |____  \n"  +
+                     "/_/  \\_\\  \\_____| \n", RomanPrinter.printAsciiArtTest("XC"));
+        assertEquals("  _____  \n" +
+                     " / ____| \n" +
+                     "| |      \n" +
+                     "| |      \n" +
+                     "| |____  \n"  +
+                     " \\_____| \n", RomanPrinter.printAsciiArtTest("C"));
+    }
 }
