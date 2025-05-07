@@ -17,6 +17,7 @@ public class RomanPrinterTest {
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("ABCD"));
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("1234"));
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("?!&/"));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("Vi I"));
     }
 
     @Test
@@ -133,12 +134,12 @@ public class RomanPrinterTest {
                      "| |        >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
                      "| |____   / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n"  +
                      "|______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("LXXXVIII"));
-        assertEquals("__    __   _____  \n" +
-                     "\\ \\  / /  / ____| \n" +
-                     " \\ \\/ /  | |      \n" +
-                     "  >  <   | |      \n" +
-                     " / /\\ \\  | |____  \n"  +
-                     "/_/  \\_\\  \\_____| \n", RomanPrinter.printAsciiArtTest("XC"));
+        assertEquals("__    __   _____   _____  __    __ \n" +
+                     "\\ \\  / /  / ____| |_   _| \\ \\  / / \n" +
+                     " \\ \\/ /  | |        | |    \\ \\/ /  \n" +
+                     "  >  <   | |        | |     >  <   \n" +
+                     " / /\\ \\  | |____   _| |_   / /\\ \\  \n"  +
+                     "/_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("XCIX"));
         assertEquals("  _____  \n" +
                      " / ____| \n" +
                      "| |      \n" +
@@ -173,5 +174,33 @@ public class RomanPrinterTest {
                      "| |  | | \n" +
                      "| |__| | \n"  +
                      "|_____/  \n", RomanPrinter.printAsciiArtTest("D"));
+    }
+
+    @Test
+    public void TestPrintAscii_to1000() {
+        assertEquals(" _____   __      __ \n" +
+                     "|  __ \\  \\ \\    / / \n" +
+                     "| |  | |  \\ \\  / /  \n" +
+                     "| |  | |   \\ \\/ /   \n" +
+                     "| |__| |    \\  /    \n" +
+                     "|_____/      \\/     \n", RomanPrinter.printAsciiArtTest("DV"));
+        assertEquals(" _____     _____    _____    _____   _       __    __ __    __ __    __ __      __  _____   _____   _____  \n" +
+                     "|  __ \\   / ____|  / ____|  / ____| | |      \\ \\  / / \\ \\  / / \\ \\  / / \\ \\    / / |_   _| |_   _| |_   _| \n" +
+                     "| |  | | | |      | |      | |      ! |       \\ \\/ /   \\ \\/ /   \\ \\/ /   \\ \\  / /    | |     | |     | |   \n" +
+                     "| |  | | | |      | |      | |      | |        >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
+                     "| |__| | | |____  | |____  | |____  | |____   / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n"  +
+                     "|_____/   \\_____|  \\_____|  \\_____| |______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("dccclxxxviii"));
+        assertEquals("  _____   __  __  __    __   _____   _____  __    __ \n" +
+                     " / ____| |  \\/  | \\ \\  / /  / ____| |_   _| \\ \\  / / \n" +
+                     "| |      | \\  / |  \\ \\/ /  | |        | |    \\ \\/ /  \n" +
+                     "| |      | |\\/| |   >  <   | |        | |     >  <   \n" +
+                     "| |____  | |  | |  / /\\ \\  | |____   _| |_   / /\\ \\  \n"  +
+                     " \\_____| |_|  |_| /_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("CMxcIX"));
+        assertEquals(" __  __  \n" +
+                     "|  \\/  | \n" +
+                     "| \\  / | \n" +
+                     "| |\\/| | \n" +
+                     "| |  | | \n"  +
+                     "|_|  |_| \n", RomanPrinter.printAsciiArtTest("M"));
     }
 }
