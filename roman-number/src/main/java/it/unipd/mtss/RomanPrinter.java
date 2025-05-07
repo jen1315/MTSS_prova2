@@ -17,14 +17,14 @@ public class RomanPrinter {
       String rm[][] = composeAscii(romanNumber);
       String asciiArt = "";
       
-      /* Accedi alla z riga di ogni array stringa(ascii art di carattere) in rm 
-       * e concatenale. Aggiungi il carattere escape \n alla fine.
+      /* Accedi alla riga i di ogni array stringa(ascii art di carattere) j 
+       * in rm e concatenale. Aggiungi il carattere escape \n alla fine.
        * Continua così con le righe z successive.
        */
-      for(int z=0; z<6; z++) {
-        for(int w=0; w<rm.length; w++) {
-          if(rm[w][z]!=null) {
-            asciiArt += rm[w][z];
+      for(int i=0; i<6; i++) {
+        for(int j=0; j<rm.length; j++) {
+          if(rm[j][i]!=null) {
+            asciiArt += rm[j][i];
           }
         }
         asciiArt += "\n";
