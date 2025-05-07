@@ -15,6 +15,6 @@ Per rendere il codice più flessibile è stato modificato il valore di default d
 
 <!-- Dopo -->
 <module name="MethodLength">
-    <property name="max" value="100"/>
+    <property name="max" value="30"/>
 </module>
 ```
