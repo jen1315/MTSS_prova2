@@ -6,31 +6,30 @@
 package it.unipd.mtss;
 
 public class RomanPrinter {
-    /*
     public static String print(int num){
         return printAsciiArt(IntegerToRoman.convert(num));
     }
-    */
 
     private static String printAsciiArt(String romanNumber){
       if(romanNumber=="") {
         throw new IllegalArgumentException("String can't be empty"); 
       }
       String rm[][] = composeAscii(romanNumber);
-      String art = "";
+      String asciiArt = "";
       
-      /* Accedi alla z riga di ogni w stringa in rm e concatenale.
-       * Vai a capo e continua così con le righe z successive.
+      /* Accedi alla z riga di ogni array stringa(ascii art di carattere) in rm 
+       * e concatenale. Aggiungi il carattere escape \n alla fine.
+       * Continua così con le righe z successive.
        */
       for(int z=0; z<6; z++) {
         for(int w=0; w<rm.length; w++) {
           if(rm[w][z]!=null) {
-            art += rm[w][z];
+            asciiArt += rm[w][z];
           }
         }
-        art += "\n";
+        asciiArt += "\n";
       }
-      return art;
+      return asciiArt;
     }
 
     private static String[][] composeAscii(String romanNumber) {
@@ -50,6 +49,9 @@ public class RomanPrinter {
       return out;
     }
 
+    /* Metodi che ritornano un array di stringhe dell'ascii art di un carattere
+     * Ogni elemento rappresenta una riga dell'ascii art
+    */
     private static String[] printAscii_I() {
         return new String[] {" _____  ",
                              "|_   _| ",
