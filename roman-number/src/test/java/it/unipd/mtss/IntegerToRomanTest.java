@@ -82,7 +82,7 @@ public class IntegerToRomanTest {
     }
 
     @Test
-    public void reversePrintAsciiTest() {
+    public void TestReverseConvert() {
         for(int i=1; i<=1000; i++) {
             assertEquals(i, reverseConvert(IntegerToRoman.convert(i)));
         }
