@@ -55,65 +55,65 @@ public class RomanPrinter {
      * Ogni elemento rappresenta una riga dell'ascii art
     */
     private static String[] printAscii_I() {
-        return new String[] {" _____  ",
-                             "|_   _| ",
-                             "  | |   ",
-                             "  | |   ",
-                             " _| |_  ",
-                             "|_____| "};
+        return new String[] {"  _____   ",
+                             " |_   _|  ",
+                             "   | |    ",
+                             "   | |    ",
+                             "  _| |_   ",
+                             " |_____|  "};
     }
 
     private static String[] printAscii_V() {
-        return new String[] {"__      __ " ,
-                             "\\ \\    / / " ,
-                             " \\ \\  / /  " ,
-                             "  \\ \\/ /   " ,
-                             "   \\  /    " ,
-                             "    \\/     ", };
+        return new String[] {"__      __",
+                             "\\ \\    / /",
+                             " \\ \\  / / ",
+                             "  \\ \\/ /  ",
+                             "   \\  /   ",
+                             "    \\/    ",};
     }
 
     private static String[] printAscii_X() {
-        return new String[] {"__    __ " ,
-                             "\\ \\  / / " ,
-                             " \\ \\/ /  " ,
-                             "  >  <   " ,
-                             " / /\\ \\  " ,
-                             "/_/  \\_\\ " };
+        return new String[] {" __    __ ",
+                             " \\ \\  / / ",
+                             "  \\ \\/ /  ",
+                             "   >  <   ",
+                             "  / /\\ \\  ",
+                             " /_/  \\_\\ "};
     }
 
     private static String[] printAscii_L() {
-        return new String[] {" _       ",
-                             "| |      ",
-                             "! |      ",
-                             "| |      ",
-                             "| |____  ",
-                             "|______| "};
+        return new String[] {"  _       ",
+                             " | |      ",
+                             " ! |      ",
+                             " | |      ",
+                             " | |____  ",
+                             " |______| "};
     }
 
     private static String[] printAscii_C() {
-        return new String[] {"  _____  ",
-                             " / ____| ",
-                             "| |      ",
-                             "| |      ",
-                             "| |____  ",
-                             " \\_____| "};
+        return new String[] {"   _____  ",
+                             "  / ____| ",
+                             " | |      ",
+                             " | |      ",
+                             " | |____  ",
+                             "  \\_____| "};
     }
 
     private static String[] printAscii_D() {
-        return new String[] {" _____   " ,
-                             "|  __ \\  ",
-                             "| |  | | " ,
-                             "| |  | | " ,
-                             "| |__| | " ,
-                             "|_____/  "};
-    }
+        return new String[] {"  _____   ",
+                             " |  __ \\  ",
+                             " | |  | | ",
+                             " | |  | | ",
+                             " | |__| | ",
+                             " |_____/  "};
+    } 
 
     private static String[] printAscii_M() {
-        return new String[] {" __  __  "  ,
-                             "|  \\/  | ",
-                             "| \\  / | " ,
-                             "| |\\/| | " ,
-                             "| |  | | "  ,
-                             "|_|  |_| ",};
+        return new String[] {"  __  __  ",
+                             " |  \\/  | ",
+                             " | \\  / | ",
+                             " | |\\/| | ",
+                             " | |  | | ",
+                             " |_|  |_| "};
     }
 }
