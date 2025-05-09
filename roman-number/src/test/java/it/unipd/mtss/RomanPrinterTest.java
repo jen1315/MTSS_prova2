@@ -13,11 +13,9 @@ public class RomanPrinterTest {
     
     @Test
     public void TestExceptions() {
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest(""));
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("ABCD"));
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("1234"));
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("?!&/"));
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.printAsciiArtTest("Vi I"));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(-1));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(0));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(1001));
     }
 
     @Test
@@ -27,19 +25,19 @@ public class RomanPrinterTest {
                      "  | |   \n" +
                      "  | |   \n" +
                      " _| |_  \n" +
-                     "|_____| \n", RomanPrinter.printAsciiArtTest("I"));
+                     "|_____| \n", RomanPrinter.print(1));
         assertEquals(" _____   _____  \n" +
                      "|_   _| |_   _| \n" +
                      "  | |     | |   \n" +
                      "  | |     | |   \n" +
                      " _| |_   _| |_  \n" +
-                     "|_____| |_____| \n", RomanPrinter.printAsciiArtTest("II"));
+                     "|_____| |_____| \n", RomanPrinter.print(2));
         assertEquals(" _____   _____   _____  \n" +
                      "|_   _| |_   _| |_   _| \n" +
                      "  | |     | |     | |   \n" +
                      "  | |     | |     | |   \n" +
                      " _| |_   _| |_   _| |_  \n" +
-                     "|_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("III"));
+                     "|_____| |_____| |_____| \n", RomanPrinter.print(3));
     }
 
     @Test
@@ -49,19 +47,19 @@ public class RomanPrinterTest {
                      "  | |    \\ \\  / /  \n" +
                      "  | |     \\ \\/ /   \n" +
                      " _| |_     \\  /    \n" +
-                     "|_____|     \\/     \n", RomanPrinter.printAsciiArtTest("IV"));
+                     "|_____|     \\/     \n", RomanPrinter.print(4));
         assertEquals("__      __ \n" +
                      "\\ \\    / / \n" +
                      " \\ \\  / /  \n" +
                      "  \\ \\/ /   \n" +
                      "   \\  /    \n" +
-                     "    \\/     \n", RomanPrinter.printAsciiArtTest("V"));
+                     "    \\/     \n", RomanPrinter.print(5));
         assertEquals("__      __  _____  \n" +
                      "\\ \\    / / |_   _| \n" +
                      " \\ \\  / /    | |   \n" +
                      "  \\ \\/ /     | |   \n" +
                      "   \\  /     _| |_  \n" +
-                     "    \\/     |_____| \n", RomanPrinter.printAsciiArtTest("VI"));
+                     "    \\/     |_____| \n", RomanPrinter.print(6));
     }
 
     @Test
@@ -71,25 +69,25 @@ public class RomanPrinterTest {
                      " \\ \\  / /    | |     | |   \n" +
                      "  \\ \\/ /     | |     | |   \n" +
                      "   \\  /     _| |_   _| |_  \n" +
-                     "    \\/     |_____| |_____| \n", RomanPrinter.printAsciiArtTest("VII"));
+                     "    \\/     |_____| |_____| \n", RomanPrinter.print(7));
         assertEquals("__      __  _____   _____   _____  \n" +
                      "\\ \\    / / |_   _| |_   _| |_   _| \n" +
                      " \\ \\  / /    | |     | |     | |   \n" +
                      "  \\ \\/ /     | |     | |     | |   \n" +
                      "   \\  /     _| |_   _| |_   _| |_  \n" +
-                     "    \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("VIII"));
+                     "    \\/     |_____| |_____| |_____| \n", RomanPrinter.print(8));
         assertEquals(" _____  __    __ \n" +
                      "|_   _| \\ \\  / / \n" +
                      "  | |    \\ \\/ /  \n" +
                      "  | |     >  <   \n" +
                      " _| |_   / /\\ \\  \n" +
-                     "|_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("IX"));
+                     "|_____| /_/  \\_\\ \n", RomanPrinter.print(9));
         assertEquals("__    __ \n" +
                      "\\ \\  / / \n" +
                      " \\ \\/ /  \n" +
                      "  >  <   \n" +
                      " / /\\ \\  \n" +
-                     "/_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("X"));
+                     "/_/  \\_\\ \n", RomanPrinter.print(10));
     }
 
     @Test
@@ -99,25 +97,25 @@ public class RomanPrinterTest {
                      " \\ \\/ /    | |    \\ \\/ /  \n" +
                      "  >  <     | |     >  <   \n" +
                      " / /\\ \\   _| |_   / /\\ \\  \n" +
-                     "/_/  \\_\\ |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("XIX"));
+                     "/_/  \\_\\ |_____| /_/  \\_\\ \n", RomanPrinter.print(19));
         assertEquals("__    __ __    __ __    __ __      __  _____   _____   _____  \n" +
                      "\\ \\  / / \\ \\  / / \\ \\  / / \\ \\    / / |_   _| |_   _| |_   _| \n" +
                      " \\ \\/ /   \\ \\/ /   \\ \\/ /   \\ \\  / /    | |     | |     | |   \n" +
                      "  >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
                      " / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n" +
-                     "/_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("XXXVIII"));
+                     "/_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.print(38));
         assertEquals("__    __  _        _____  __    __ \n" +
                      "\\ \\  / / | |      |_   _| \\ \\  / / \n" +
                      " \\ \\/ /  ! |        | |    \\ \\/ /  \n" +
                      "  >  <   | |        | |     >  <   \n" +
                      " / /\\ \\  | |____   _| |_   / /\\ \\  \n" +
-                     "/_/  \\_\\ |______| |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("XLIX"));
+                     "/_/  \\_\\ |______| |_____| /_/  \\_\\ \n", RomanPrinter.print(49));
         assertEquals(" _       \n" +
                      "| |      \n" +
                      "! |      \n" +
                      "| |      \n" +
                      "| |____  \n" +
-                     "|______| \n", RomanPrinter.printAsciiArtTest("L"));
+                     "|______| \n", RomanPrinter.print(50));
     }
 
     @Test
@@ -127,25 +125,25 @@ public class RomanPrinterTest {
                      "! |       \\ \\  / /  \n" +
                      "| |        \\ \\/ /   \n" +
                      "| |____     \\  /    \n" +
-                     "|______|     \\/     \n", RomanPrinter.printAsciiArtTest("LV"));
+                     "|______|     \\/     \n", RomanPrinter.print(55));
         assertEquals(" _       __    __ __    __ __    __ __      __  _____   _____   _____  \n" +
                      "| |      \\ \\  / / \\ \\  / / \\ \\  / / \\ \\    / / |_   _| |_   _| |_   _| \n" +
                      "! |       \\ \\/ /   \\ \\/ /   \\ \\/ /   \\ \\  / /    | |     | |     | |   \n" +
                      "| |        >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
                      "| |____   / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n"  +
-                     "|______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("LXXXVIII"));
+                     "|______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.print(88));
         assertEquals("__    __   _____   _____  __    __ \n" +
                      "\\ \\  / /  / ____| |_   _| \\ \\  / / \n" +
                      " \\ \\/ /  | |        | |    \\ \\/ /  \n" +
                      "  >  <   | |        | |     >  <   \n" +
                      " / /\\ \\  | |____   _| |_   / /\\ \\  \n"  +
-                     "/_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("XCIX"));
+                     "/_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.print(99));
         assertEquals("  _____  \n" +
                      " / ____| \n" +
                      "| |      \n" +
                      "| |      \n" +
                      "| |____  \n"  +
-                     " \\_____| \n", RomanPrinter.printAsciiArtTest("C"));
+                     " \\_____| \n", RomanPrinter.print(100));
     }
 
     @Test
@@ -155,25 +153,25 @@ public class RomanPrinterTest {
                      "| |       \\ \\  / /  \n" +
                      "| |        \\ \\/ /   \n" +
                      "| |____     \\  /    \n" +
-                     " \\_____|     \\/     \n", RomanPrinter.printAsciiArtTest("CV"));
+                     " \\_____|     \\/     \n", RomanPrinter.print(105));
         assertEquals("  _____    _____    _____   _       __    __ __    __ __    __ __      __  _____   _____   _____  \n" +
                      " / ____|  / ____|  / ____| | |      \\ \\  / / \\ \\  / / \\ \\  / / \\ \\    / / |_   _| |_   _| |_   _| \n" +
                      "| |      | |      | |      ! |       \\ \\/ /   \\ \\/ /   \\ \\/ /   \\ \\  / /    | |     | |     | |   \n" +
                      "| |      | |      | |      | |        >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
                      "| |____  | |____  | |____  | |____   / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n"  +
-                     " \\_____|  \\_____|  \\_____| |______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("CCCLXXXVIII"));
+                     " \\_____|  \\_____|  \\_____| |______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.print(388));
         assertEquals("  _____   _____    _____  __    __ \n" +
                      " / ____| |  __ \\  |_   _| \\ \\  / / \n" +
                      "| |      | |  | |   | |    \\ \\/ /  \n" +
                      "| |      | |  | |   | |     >  <   \n" +
                      "| |____  | |__| |  _| |_   / /\\ \\  \n"  +
-                     " \\_____| |_____/  |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("CDIX"));
+                     " \\_____| |_____/  |_____| /_/  \\_\\ \n", RomanPrinter.print(409));
         assertEquals(" _____   \n" +
                      "|  __ \\  \n" +
                      "| |  | | \n" +
                      "| |  | | \n" +
                      "| |__| | \n"  +
-                     "|_____/  \n", RomanPrinter.printAsciiArtTest("D"));
+                     "|_____/  \n", RomanPrinter.print(500));
     }
 
     @Test
@@ -183,24 +181,24 @@ public class RomanPrinterTest {
                      "| |  | |  \\ \\  / /  \n" +
                      "| |  | |   \\ \\/ /   \n" +
                      "| |__| |    \\  /    \n" +
-                     "|_____/      \\/     \n", RomanPrinter.printAsciiArtTest("DV"));
+                     "|_____/      \\/     \n", RomanPrinter.print(505));
         assertEquals(" _____     _____    _____    _____   _       __    __ __    __ __    __ __      __  _____   _____   _____  \n" +
                      "|  __ \\   / ____|  / ____|  / ____| | |      \\ \\  / / \\ \\  / / \\ \\  / / \\ \\    / / |_   _| |_   _| |_   _| \n" +
                      "| |  | | | |      | |      | |      ! |       \\ \\/ /   \\ \\/ /   \\ \\/ /   \\ \\  / /    | |     | |     | |   \n" +
                      "| |  | | | |      | |      | |      | |        >  <     >  <     >  <     \\ \\/ /     | |     | |     | |   \n" +
                      "| |__| | | |____  | |____  | |____  | |____   / /\\ \\   / /\\ \\   / /\\ \\     \\  /     _| |_   _| |_   _| |_  \n"  +
-                     "|_____/   \\_____|  \\_____|  \\_____| |______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.printAsciiArtTest("dccclxxxviii"));
+                     "|_____/   \\_____|  \\_____|  \\_____| |______| /_/  \\_\\ /_/  \\_\\ /_/  \\_\\     \\/     |_____| |_____| |_____| \n", RomanPrinter.print(888));
         assertEquals("  _____   __  __  __    __   _____   _____  __    __ \n" +
                      " / ____| |  \\/  | \\ \\  / /  / ____| |_   _| \\ \\  / / \n" +
                      "| |      | \\  / |  \\ \\/ /  | |        | |    \\ \\/ /  \n" +
                      "| |      | |\\/| |   >  <   | |        | |     >  <   \n" +
                      "| |____  | |  | |  / /\\ \\  | |____   _| |_   / /\\ \\  \n"  +
-                     " \\_____| |_|  |_| /_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.printAsciiArtTest("CMxcIX"));
+                     " \\_____| |_|  |_| /_/  \\_\\  \\_____| |_____| /_/  \\_\\ \n", RomanPrinter.print(999));
         assertEquals(" __  __  \n" +
                      "|  \\/  | \n" +
                      "| \\  / | \n" +
                      "| |\\/| | \n" +
                      "| |  | | \n"  +
-                     "|_|  |_| \n", RomanPrinter.printAsciiArtTest("M"));
+                     "|_|  |_| \n", RomanPrinter.print(1000));
     }
 }

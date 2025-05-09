@@ -116,10 +116,4 @@ public class RomanPrinter {
                              "| |  | | "  ,
                              "|_|  |_| ",};
     }
-
-    /* Metodo accessore per test. Da rimuovere a release. */
-    public static String printAsciiArtTest(String romanNumber)
-      throws IllegalArgumentException {
-        return printAsciiArt(romanNumber);
-    }
 }
