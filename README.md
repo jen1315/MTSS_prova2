@@ -5,7 +5,7 @@
 // VALERIA BALEANU 2109911
 ////////////////////////////////////////////////////////////////////
 
-![Build](https://github.com/jen1315/MTSS_prova2/actions/workflows/build.yml/badge.svg)
+[![Build](https://github.com/jen1315/MTSS_prova2/actions/workflows/build.yml/badge.svg)](https://github.com/jen1315/MTSS_prova2/actions/workflows/build.yml)
 
 ### Descrizione
 Il progetto consiste nello sviluppo di un convertitore da numeri arabi (da 1 a 1000) a numeri romani, con visualizzazione in ASCII art. Il lavoro è stato svolto seguendo le pratiche di Continuous Integration e Test-Driven (TDD), includendo:
