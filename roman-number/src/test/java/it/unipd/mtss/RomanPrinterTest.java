@@ -229,14 +229,11 @@ public class RomanPrinterTest {
         return romanNumber.toString();
     }
 
+    /* Test di Cross-examination e Performance di Right-BICEP */
     @Test
-    public void reversePrintTest() {
+    public void reversePrintAsciiTest() {
         for(int i=1; i<1001; i++) {
             assertEquals(i, IntegerToRomanTest.reverseConvert(reversePrint(RomanPrinter.print(i))));
         }
     }
-
-    /* Test di Cross-examination e Performance di Right-BICEP 
-     * TODO
-    */
 }
