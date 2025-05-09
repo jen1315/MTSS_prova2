@@ -50,4 +50,36 @@ public class IntegerToRomanTest {
         assertEquals("CM", IntegerToRoman.convert(900));
         assertEquals("M", IntegerToRoman.convert(1000));
     }
+
+    public static String convertAlternative(int number) {
+        
+        if (number <= 0 || number > 1000) {
+            throw new IllegalArgumentException("Number must be in 1-1000");
+        }
+        StringBuilder result = new StringBuilder();
+        
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] numerals = {
+            "M", "CM", "D", "CD", "C", "XC", "L",
+            "XL", "X", "IX", "V", "IV", "I"
+        };
+        
+        int i = 0;
+        while (number > 0) {
+            if (number >= values[i]) {
+                result.append(numerals[i]);
+                number -= values[i];
+            } else {
+                i++;
+            }
+        }
+        return result.toString();
+    }
+
+    @Test
+    public void TestConvertAlternative() {
+        for(int i=1; i<=1000; i++) {
+            assertEquals(IntegerToRoman.convert(i), convertAlternative(i));
+        }
+    }
 }
