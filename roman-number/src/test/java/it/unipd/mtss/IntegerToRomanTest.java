@@ -51,6 +51,43 @@ public class IntegerToRomanTest {
         assertEquals("M", IntegerToRoman.convert(1000));
     }
 
+    public static int reverseConvert(String roman) {
+
+        int total = 0;
+        int prevValue = 0;
+        for (int i = roman.length() - 1; i >= 0; i--) {
+
+            char c = roman.charAt(i);
+            int value = getRomanValue(c);
+
+            if (value < prevValue) {
+                total -= value;
+            } else {
+                total += value;
+            }
+            prevValue = value;
+        }
+        return total;
+    }
+
+    private static int getRomanValue(char c) {
+        if (c == 'I') return 1;
+        if (c == 'V') return 5;
+        if (c == 'X') return 10;
+        if (c == 'L') return 50;
+        if (c == 'C') return 100;
+        if (c == 'D') return 500;
+        if (c == 'M') return 1000;
+        return 0; // Valore di default
+    }
+
+    @Test
+    public void TestReverseConvert() {
+        for(int i=1; i<=1000; i++) {
+            assertEquals(i, reverseConvert(IntegerToRoman.convert(i)));
+        }
+    }
+
     public static String convertAlternative(int number) {
         
         if (number <= 0 || number > 1000) {
