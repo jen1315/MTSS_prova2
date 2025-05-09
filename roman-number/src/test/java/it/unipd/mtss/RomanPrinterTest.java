@@ -203,7 +203,7 @@ public class RomanPrinterTest {
     }
 
     /* Test di Inverse di Right-BICEP */
-    public String reversePrintAscii(String asciiArt) {
+    public String reversePrint(String asciiArt) {
         if(asciiArt=="") {
             throw new IllegalArgumentException("String can't be empty");
         }
@@ -233,7 +233,7 @@ public class RomanPrinterTest {
     @Test
     public void reversePrintAsciiTest() {
         for(int i=1; i<1001; i++) {
-            assertEquals(i, IntegerToRomanTest.reverseConvert(reversePrintAscii(RomanPrinter.print(i))));
+            assertEquals(i, IntegerToRomanTest.reverseConvert(reversePrint(RomanPrinter.print(i))));
         }
     }
 }
