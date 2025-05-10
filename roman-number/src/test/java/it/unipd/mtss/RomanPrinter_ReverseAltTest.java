@@ -55,9 +55,9 @@ public class RomanPrinter_ReverseAltTest {
          " | |\\/| | ",
          " | |  | | ",
          " |_|  |_| "}};
-    String rmChar[] = {"I", "V", "X", "L", "C", "D", "M"};
+    static String rmChar[] = {"I", "V", "X", "L", "C", "D", "M"};
 
-    public String reversePrint(String asciiArt) {
+    public static String reversePrint(String asciiArt) {
         if(asciiArt=="") {
             throw new IllegalArgumentException("String can't be empty");
         }
@@ -88,7 +88,7 @@ public class RomanPrinter_ReverseAltTest {
             throw new IllegalArgumentException("String can't be empty"); 
         }
         String rm[][] = composeAscii(romanNumber);
-        StringBuilder asciiArt = new StringBuilder();
+        String asciiArt = "";
         
         /* Accedi alla riga i di ogni array stringa(ascii art di carattere) j 
          * in rm e concatenale. Aggiungi il carattere escape \n alla fine.
@@ -97,12 +97,12 @@ public class RomanPrinter_ReverseAltTest {
         for(int i=0; i<6; i++) {
             for(int j=0; j<rm.length; j++) {
                 if(rm[j][i]!=null) {
-                    asciiArt.append(rm[j][i]);
+                    asciiArt += rm[j][i];
                 }
             }
-            asciiArt.append("\n");
+            asciiArt += "\n";
         }
-        return asciiArt.toString();
+        return asciiArt;
     }
     
     private static String[][] composeAscii(String romanNumber) {
@@ -129,20 +129,33 @@ public class RomanPrinter_ReverseAltTest {
     }
 
     @Test
+    public void TestConvertAlternative() {
+        for(int i=1; i<=1000; i++) {
+            assertEquals(RomanPrinter.print(i), printAlt(i));
+        }
+    }
+
+    @Test
     public void performancePrintTest() {
         long startTime = System.currentTimeMillis();
-        for(int i=1; i<1001; i++) {
-            RomanPrinter.print(i);
+        for(int j=0; j<1000; j++) {
+            for(int i=1; i<=1000; i++) {
+                RomanPrinter.print(i);
+            }
         }
         long endTime = System.currentTimeMillis();
-        System.out.println(endTime-startTime);
+        long printTime = endTime-startTime;
+        System.out.println("print :" + printTime);
 
         startTime = System.currentTimeMillis();
-        for(int i=1; i<1001; i++) {
-            printAlt(i);
+        for(int j=0; j<1000; j++) {
+            for(int i=1; i<=1000; i++) {
+                printAlt(i);
+            }
         }
         endTime = System.currentTimeMillis();
-        System.out.println(endTime-startTime);
+        long altTime = endTime-startTime;
+        System.out.println("printAlternative: " + altTime);
 
     }
 }
