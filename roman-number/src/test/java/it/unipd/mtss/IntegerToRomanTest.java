@@ -8,6 +8,7 @@ package it.unipd.mtss;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.lang.Math;
 
 public class IntegerToRomanTest {
     @Test
@@ -86,5 +87,60 @@ public class IntegerToRomanTest {
         for(int i=1; i<=1000; i++) {
             assertEquals(i, reverseConvert(IntegerToRoman.convert(i)));
         }
+    }
+
+    public static String convertAlternative(int number) {
+        
+        if (number <= 0 || number > 1000) {
+            throw new IllegalArgumentException("Number must be in 1-1000");
+        }
+        StringBuilder result = new StringBuilder();
+        
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] numerals = {
+            "M", "CM", "D", "CD", "C", "XC", "L",
+            "XL", "X", "IX", "V", "IV", "I"
+        };
+        
+        int i = 0;
+        while (number > 0) {
+            if (number >= values[i]) {
+                result.append(numerals[i]);
+                number -= values[i];
+            } else {
+                i++;
+            }
+        }
+        return result.toString();
+    }
+
+    @Test
+    public void TestConvertAlternative() {
+        for(int i=1; i<=1000; i++) {
+            assertEquals(IntegerToRoman.convert(i), convertAlternative(i));
+        }
+    }
+
+    @Test
+    public void performanceConvertAlternative() {
+        long startTime = System.currentTimeMillis();
+        for(int j=0; j<1000; j++) {
+            for(int i=1; i<=1000; i++) {
+                IntegerToRoman.convert(i);
+            }
+        }
+        long endTime = System.currentTimeMillis();
+        long convertTime = endTime-startTime;
+        System.out.println("convert: " + convertTime);
+
+        startTime = System.currentTimeMillis();
+        for(int j=0; j<1000; j++) {
+            for(int i=1; i<=1000; i++) {
+                convertAlternative(i);
+            }
+        }
+        endTime = System.currentTimeMillis();
+        long altTime = (endTime-startTime);
+        System.out.println("convertAlternative: " + altTime);
     }
 }

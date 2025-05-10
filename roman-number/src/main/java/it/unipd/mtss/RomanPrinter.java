@@ -7,7 +7,7 @@ package it.unipd.mtss;
 
 public class RomanPrinter {
     public static String print(int num){
-        return printAsciiArt(IntegerToRoman.convert(num));
+      return printAsciiArt(IntegerToRoman.convert(num));
     }
 
     private static String printAsciiArt(String romanNumber){
@@ -15,7 +15,7 @@ public class RomanPrinter {
         throw new IllegalArgumentException("String can't be empty"); 
       }
       String rm[][] = composeAscii(romanNumber);
-      String asciiArt = "";
+      StringBuffer asciiArt = new StringBuffer();
       
       /* Accedi alla riga i di ogni array stringa(ascii art di carattere) j 
        * in rm e concatenale. Aggiungi il carattere escape \n alla fine.
@@ -24,12 +24,12 @@ public class RomanPrinter {
       for(int i=0; i<6; i++) {
         for(int j=0; j<rm.length; j++) {
           if(rm[j][i]!=null) {
-            asciiArt += rm[j][i];
+            asciiArt.append(rm[j][i]);
           }
         }
-        asciiArt += "\n";
+        asciiArt.append("\n");
       }
-      return asciiArt;
+      return asciiArt.toString();
     }
 
     private static String[][] composeAscii(String romanNumber) {
