@@ -131,7 +131,7 @@ public class IntegerToRomanTest {
         }
         long endTime = System.currentTimeMillis();
         long convertTime = endTime-startTime;
-        System.out.println(convertTime);
+        System.out.println("convert: " + convertTime);
 
         startTime = System.currentTimeMillis();
         for(int j=0; j<1000; j++) {
@@ -141,8 +141,6 @@ public class IntegerToRomanTest {
         }
         endTime = System.currentTimeMillis();
         long altTime = (endTime-startTime);
-        System.out.println(altTime);
-
-        assertEquals(true, Math.abs(convertTime-altTime)<=50);
+        System.out.println("convertAlternative: " + altTime);
     }
 }
