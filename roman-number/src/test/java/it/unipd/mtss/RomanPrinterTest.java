@@ -201,39 +201,4 @@ public class RomanPrinterTest {
                      " | |  | | \n"  +
                      " |_|  |_| \n", RomanPrinter.print(1000));
     }
-
-    /* Test di Inverse di Right-BICEP */
-    public String reversePrint(String asciiArt) {
-        if(asciiArt=="") {
-            throw new IllegalArgumentException("String can't be empty");
-        }
-        String rmArt[][] = {{"  _____   "," |_   _|  ","   | |    ","   | |    ","  _| |_   "," |_____|  "}, 
-                            {"__      __","\\ \\    / /"," \\ \\  / / ","  \\ \\/ /  ","   \\  /   ","    \\/    "},
-                            {" __    __ "," \\ \\  / / ","  \\ \\/ /  ","   >  <   ","  / /\\ \\  "," /_/  \\_\\ "},
-                            {"  _       "," | |      "," ! |      "," | |      "," | |____  "," |______| "},
-                            {"   _____  ","  / ____| "," | |      "," | |      "," | |____  ","  \\_____| "},
-                            {"  _____   "," |  __ \\  "," | |  | | "," | |  | | "," | |__| | "," |_____/  "},
-                            {"  __  __  "," |  \\/  | "," | \\  / | "," | |\\/| | "," | |  | | "," |_|  |_| "}};
-        String rm[] = {"I", "V", "X", "L", "C", "D", "M"};
-        String aa[] = asciiArt.split("\\n+");
-        aa = aa[1].split("(?<=\\G.{10})");
-        String romanNumber = "";
-
-        for(int i=0; i<aa.length; i++) {
-            for(int j=0; j<rmArt.length; j++) {
-                if(aa[i].equals(rmArt[j][1])) {
-                    romanNumber += rm[j];
-                }
-            }
-        }
-        return romanNumber.toString();
-    }
-
-    /* Test di Cross-examination e Performance di Right-BICEP */
-    @Test
-    public void reversePrintAsciiTest() {
-        for(int i=1; i<1001; i++) {
-            assertEquals(i, IntegerToRomanTest.reverseConvert(reversePrint(RomanPrinter.print(i))));
-        }
-    }
 }

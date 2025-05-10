@@ -8,6 +8,7 @@ package it.unipd.mtss;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.lang.Math;
 
 public class IntegerToRomanTest {
     @Test
@@ -118,5 +119,30 @@ public class IntegerToRomanTest {
         for(int i=1; i<=1000; i++) {
             assertEquals(IntegerToRoman.convert(i), convertAlternative(i));
         }
+    }
+
+    @Test
+    public void performanceConvertAlternative() {
+        long startTime = System.currentTimeMillis();
+        for(int j=0; j<1000; j++) {
+            for(int i=1; i<=1000; i++) {
+                IntegerToRoman.convert(i);
+            }
+        }
+        long endTime = System.currentTimeMillis();
+        long convertTime = endTime-startTime;
+        System.out.println(convertTime);
+
+        startTime = System.currentTimeMillis();
+        for(int j=0; j<1000; j++) {
+            for(int i=1; i<=1000; i++) {
+                convertAlternative(i);
+            }
+        }
+        endTime = System.currentTimeMillis();
+        long altTime = (endTime-startTime);
+        System.out.println(altTime);
+
+        assertEquals(true, Math.abs(convertTime-altTime)<=50);
     }
 }
