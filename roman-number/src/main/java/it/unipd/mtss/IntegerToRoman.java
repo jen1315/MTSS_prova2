@@ -8,6 +8,7 @@ package it.unipd.mtss;
 public class IntegerToRoman {
     public static String convert(int number){
 
+        // Controllo eccezioni. Il numero deve essere compreso tra 1 e 1000
         if(number <= 0 || number > 1000) {
             throw new IllegalArgumentException("Number must be in 1-1000");
         }
