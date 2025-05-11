@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RomanPrinter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">roman-number</a> &gt; <a href="index.source.html" class="el_package">it.unipd.mtss</a> &gt; <span class="el_source">RomanPrinter.java</span></div><h1>RomanPrinter.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////
+// QIAO QIAO CAI 2111010
+// VALERIA BALEANU 2109911
+////////////////////////////////////////////////////////////////////
+
+package it.unipd.mtss;
+
+<span class="nc" id="L8">public class RomanPrinter {</span>
+    public static String print(int num){
+<span class="fc" id="L10">      return printAsciiArt(IntegerToRoman.convert(num));</span>
+    }
+
+    private static String printAsciiArt(String romanNumber){
+<span class="pc bpc" id="L14" title="1 of 2 branches missed.">      if(romanNumber==&quot;&quot;) {</span>
+<span class="nc" id="L15">        throw new IllegalArgumentException(&quot;String can't be empty&quot;); </span>
+      }
+<span class="fc" id="L17">      String rm[][] = composeAscii(romanNumber);</span>
+<span class="fc" id="L18">      StringBuffer asciiArt = new StringBuffer();</span>
+      
+      /* Accedi alla riga i di ogni array stringa(ascii art di carattere) j 
+       * in rm e concatenale. Aggiungi il carattere escape \n alla fine.
+       * Continua così con le righe z successive.
+       */
+<span class="fc bfc" id="L24" title="All 2 branches covered.">      for(int i=0; i&lt;6; i++) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        for(int j=0; j&lt;rm.length; j++) {</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">          if(rm[j][i]!=null) {</span>
+<span class="fc" id="L27">            asciiArt.append(rm[j][i]);</span>
+          }
+        }
+<span class="fc" id="L30">        asciiArt.append(&quot;\n&quot;);</span>
+      }
+<span class="fc" id="L32">      return asciiArt.toString();</span>
+    }
+
+    private static String[][] composeAscii(String romanNumber) {
+<span class="fc" id="L36">      String out[][] = new String[12][6];</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">      for(int i=0; i&lt;romanNumber.length(); i++) {</span>
+<span class="fc" id="L38">        char c = Character.toUpperCase(romanNumber.charAt(i));</span>
+<span class="pc bpc" id="L39" title="1 of 8 branches missed.">        switch(c) {</span>
+<span class="fc" id="L40">          case 'I': out[i] = printAscii_I(); break;</span>
+<span class="fc" id="L41">          case 'V': out[i] = printAscii_V(); break;</span>
+<span class="fc" id="L42">          case 'X': out[i] = printAscii_X(); break;</span>
+<span class="fc" id="L43">          case 'L': out[i] = printAscii_L(); break;</span>
+<span class="fc" id="L44">          case 'C': out[i] = printAscii_C(); break;</span>
+<span class="fc" id="L45">          case 'D': out[i] = printAscii_D(); break;</span>
+<span class="fc" id="L46">          case 'M': out[i] = printAscii_M(); break;</span>
+          default: 
+<span class="nc" id="L48">            throw new IllegalArgumentException(&quot;String must be roman number&quot;);</span>
+        }
+      }
+<span class="fc" id="L51">      return out;</span>
+    }
+
+    /* Metodi che ritornano un array di stringhe dell'ascii art di un carattere
+     * Ogni elemento rappresenta una riga dell'ascii art
+    */
+    private static String[] printAscii_I() {
+<span class="fc" id="L58">        return new String[] {&quot;  _____   &quot;,</span>
+<span class="fc" id="L59">                             &quot; |_   _|  &quot;,</span>
+<span class="fc" id="L60">                             &quot;   | |    &quot;,</span>
+<span class="fc" id="L61">                             &quot;   | |    &quot;,</span>
+<span class="fc" id="L62">                             &quot;  _| |_   &quot;,</span>
+<span class="fc" id="L63">                             &quot; |_____|  &quot;};</span>
+    }
+
+    private static String[] printAscii_V() {
+<span class="fc" id="L67">        return new String[] {&quot;__      __&quot;,</span>
+<span class="fc" id="L68">                             &quot;\\ \\    / /&quot;,</span>
+<span class="fc" id="L69">                             &quot; \\ \\  / / &quot;,</span>
+<span class="fc" id="L70">                             &quot;  \\ \\/ /  &quot;,</span>
+<span class="fc" id="L71">                             &quot;   \\  /   &quot;,</span>
+<span class="fc" id="L72">                             &quot;    \\/    &quot;,};</span>
+    }
+
+    private static String[] printAscii_X() {
+<span class="fc" id="L76">        return new String[] {&quot; __    __ &quot;,</span>
+<span class="fc" id="L77">                             &quot; \\ \\  / / &quot;,</span>
+<span class="fc" id="L78">                             &quot;  \\ \\/ /  &quot;,</span>
+<span class="fc" id="L79">                             &quot;   &gt;  &lt;   &quot;,</span>
+<span class="fc" id="L80">                             &quot;  / /\\ \\  &quot;,</span>
+<span class="fc" id="L81">                             &quot; /_/  \\_\\ &quot;};</span>
+    }
+
+    private static String[] printAscii_L() {
+<span class="fc" id="L85">        return new String[] {&quot;  _       &quot;,</span>
+<span class="fc" id="L86">                             &quot; | |      &quot;,</span>
+<span class="fc" id="L87">                             &quot; ! |      &quot;,</span>
+<span class="fc" id="L88">                             &quot; | |      &quot;,</span>
+<span class="fc" id="L89">                             &quot; | |____  &quot;,</span>
+<span class="fc" id="L90">                             &quot; |______| &quot;};</span>
+    }
+
+    private static String[] printAscii_C() {
+<span class="fc" id="L94">        return new String[] {&quot;   _____  &quot;,</span>
+<span class="fc" id="L95">                             &quot;  / ____| &quot;,</span>
+<span class="fc" id="L96">                             &quot; | |      &quot;,</span>
+<span class="fc" id="L97">                             &quot; | |      &quot;,</span>
+<span class="fc" id="L98">                             &quot; | |____  &quot;,</span>
+<span class="fc" id="L99">                             &quot;  \\_____| &quot;};</span>
+    }
+
+    private static String[] printAscii_D() {
+<span class="fc" id="L103">        return new String[] {&quot;  _____   &quot;,</span>
+<span class="fc" id="L104">                             &quot; |  __ \\  &quot;,</span>
+<span class="fc" id="L105">                             &quot; | |  | | &quot;,</span>
+<span class="fc" id="L106">                             &quot; | |  | | &quot;,</span>
+<span class="fc" id="L107">                             &quot; | |__| | &quot;,</span>
+<span class="fc" id="L108">                             &quot; |_____/  &quot;};</span>
+    } 
+
+    private static String[] printAscii_M() {
+<span class="fc" id="L112">        return new String[] {&quot;  __  __  &quot;,</span>
+<span class="fc" id="L113">                             &quot; |  \\/  | &quot;,</span>
+<span class="fc" id="L114">                             &quot; | \\  / | &quot;,</span>
+<span class="fc" id="L115">                             &quot; | |\\/| | &quot;,</span>
+<span class="fc" id="L116">                             &quot; | |  | | &quot;,</span>
+<span class="fc" id="L117">                             &quot; |_|  |_| &quot;};</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -90,10 +90,6 @@ public class RomanPrinter_ReverseAltTest {
         String rm[][] = composeAscii(romanNumber);
         String asciiArt = "";
         
-        /* Accedi alla riga i di ogni array stringa(ascii art di carattere) j 
-         * in rm e concatenale. Aggiungi il carattere escape \n alla fine.
-         * Continua così con le righe z successive.
-         */
         for(int i=0; i<6; i++) {
             for(int j=0; j<rm.length; j++) {
                 if(rm[j][i]!=null) {

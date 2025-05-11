@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IntegerToRoman.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">roman-number</a> &gt; <a href="index.source.html" class="el_package">it.unipd.mtss</a> &gt; <span class="el_source">IntegerToRoman.java</span></div><h1>IntegerToRoman.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////
+// QIAO QIAO CAI 2111010
+// VALERIA BALEANU 2109911
+////////////////////////////////////////////////////////////////////
+
+package it.unipd.mtss;
+
+<span class="nc" id="L8">public class IntegerToRoman {</span>
+    public static String convert(int number){
+
+        // Controllo eccezioni. Il numero deve essere compreso tra 1 e 1000
+<span class="fc bfc" id="L12" title="All 4 branches covered.">        if(number &lt;= 0 || number &gt; 1000) {</span>
+<span class="fc" id="L13">            throw new IllegalArgumentException(&quot;Number must be in 1-1000&quot;);</span>
+        }
+
+        // Corrispondenza numeri romani - arabi 'speciali'
+<span class="fc" id="L17">        String[] roman = {&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,</span>
+<span class="fc" id="L18">                        &quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};</span>
+<span class="fc" id="L19">        int[] arab = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};</span>
+
+        //Per memorizzare il risultato
+<span class="fc" id="L22">        StringBuilder result = new StringBuilder();</span>
+
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for(int i=0; i&lt;arab.length; i++) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            while(number &gt;= arab[i]) {</span>
+<span class="fc" id="L26">                result.append(roman[i]);</span>
+<span class="fc" id="L27">                number -= arab[i];</span>
+            }
+        }
+
+<span class="fc" id="L31">        return result.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
