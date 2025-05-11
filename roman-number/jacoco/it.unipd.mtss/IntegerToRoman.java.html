@@ -6,29 +6,35 @@
 package it.unipd.mtss;
 
 <span class="nc" id="L8">public class IntegerToRoman {</span>
+    
+    //Metodo che esegue la conversione da numeri arabi a romani
+    // da 1 fino a 1000
+    //PRE: number numero intero tra 1 e 1000
+    //POST: result è una stringa che rappresenta 
+    // il numero romano corrispondente a number
     public static String convert(int number){
 
         // Controllo eccezioni. Il numero deve essere compreso tra 1 e 1000
-<span class="fc bfc" id="L12" title="All 4 branches covered.">        if(number &lt;= 0 || number &gt; 1000) {</span>
-<span class="fc" id="L13">            throw new IllegalArgumentException(&quot;Number must be in 1-1000&quot;);</span>
+<span class="fc bfc" id="L18" title="All 4 branches covered.">        if(number &lt;= 0 || number &gt; 1000) {</span>
+<span class="fc" id="L19">            throw new IllegalArgumentException(&quot;Number must be in 1-1000&quot;);</span>
         }
 
         // Corrispondenza numeri romani - arabi 'speciali'
-<span class="fc" id="L17">        String[] roman = {&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,</span>
-<span class="fc" id="L18">                        &quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};</span>
-<span class="fc" id="L19">        int[] arab = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};</span>
+<span class="fc" id="L23">        String[] roman = {&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,</span>
+                        &quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};
+<span class="fc" id="L25">        int[] arab = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};</span>
 
         //Per memorizzare il risultato
-<span class="fc" id="L22">        StringBuilder result = new StringBuilder();</span>
+<span class="fc" id="L28">        StringBuilder result = new StringBuilder();</span>
 
-<span class="fc bfc" id="L24" title="All 2 branches covered.">        for(int i=0; i&lt;arab.length; i++) {</span>
-<span class="fc bfc" id="L25" title="All 2 branches covered.">            while(number &gt;= arab[i]) {</span>
-<span class="fc" id="L26">                result.append(roman[i]);</span>
-<span class="fc" id="L27">                number -= arab[i];</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for(int i=0; i&lt;arab.length; i++) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            while(number &gt;= arab[i]) {</span>
+<span class="fc" id="L32">                result.append(roman[i]);</span>
+<span class="fc" id="L33">                number -= arab[i];</span>
             }
         }
 
-<span class="fc" id="L31">        return result.toString();</span>
+<span class="fc" id="L37">        return result.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
