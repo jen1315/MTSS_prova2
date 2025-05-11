@@ -6,8 +6,15 @@
 package it.unipd.mtss;
 
 public class IntegerToRoman {
+    
+    //Metodo che esegue la conversione da numeri arabi a romani
+    // da 1 fino a 1000
+    //PRE: number numero intero tra 1 e 1000
+    //POST: result è una stringa che rappresenta 
+    // il numero romano corrispondente a number
     public static String convert(int number){
 
+        // Controllo eccezioni. Il numero deve essere compreso tra 1 e 1000
         if(number <= 0 || number > 1000) {
             throw new IllegalArgumentException("Number must be in 1-1000");
         }

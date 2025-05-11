@@ -13,6 +13,7 @@ import java.lang.Math;
 public class IntegerToRomanTest {
     @Test
     public void TestExceptions() {
+        //TEST PER LE ECCEZIONI
         assertThrows(IllegalArgumentException.class, () -> IntegerToRoman.convert(0));
         assertThrows(IllegalArgumentException.class, () -> IntegerToRoman.convert(-1));
         assertThrows(IllegalArgumentException.class, () -> IntegerToRoman.convert(1001));
@@ -20,6 +21,7 @@ public class IntegerToRomanTest {
 
     @Test
     public void TestConvert() {
+        //TEST PRINCIPALE
         assertEquals("I", IntegerToRoman.convert(1));
         assertEquals("II", IntegerToRoman.convert(2));
         assertEquals("III", IntegerToRoman.convert(3));
@@ -52,8 +54,10 @@ public class IntegerToRomanTest {
         assertEquals("M", IntegerToRoman.convert(1000));
     }
 
+    //Metodo inverso a IntegerToRoman.convert()
+    //PRE: roman è una stringa composta da simboli romani e rappresenta un numero romano da 1 (I) fino a 1000 (M)
+    //POST: total è un intero positivo che rappresenta il numero arabo corrispondente a roman
     public static int reverseConvert(String roman) {
-
         int total = 0;
         int prevValue = 0;
         for (int i = roman.length() - 1; i >= 0; i--) {
@@ -71,6 +75,9 @@ public class IntegerToRomanTest {
         return total;
     }
 
+    //Metodo accessorio a reverseConvert
+    //PRE: char c che rappresenta 1 simbolo romano, fino a M
+    //POST: valore intero corrispondente al simbolo
     private static int getRomanValue(char c) {
         if (c == 'I') return 1;
         if (c == 'V') return 5;
@@ -84,13 +91,16 @@ public class IntegerToRomanTest {
 
     @Test
     public void TestReverseConvert() {
+        //Test che controlla il corretto funzionamento del metodo ReverseConvert
         for(int i=1; i<=1000; i++) {
             assertEquals(i, reverseConvert(IntegerToRoman.convert(i)));
         }
     }
 
+    // Metodo alternativo a IntegerToRoman.convert
+    //PRE: number numero intero tra 1 e 1000
+    //POST: result stringa che rappresenta il numero romano corrispondente a number
     public static String convertAlternative(int number) {
-        
         if (number <= 0 || number > 1000) {
             throw new IllegalArgumentException("Number must be in 1-1000");
         }
@@ -116,6 +126,8 @@ public class IntegerToRomanTest {
 
     @Test
     public void TestConvertAlternative() {
+        //Test che controlla il corretto funzionamento di convertAlternative, controllando
+        //che il valore ritornato sia uguale a quello del metodo 'originale' IntegerToRoman.convert
         for(int i=1; i<=1000; i++) {
             assertEquals(IntegerToRoman.convert(i), convertAlternative(i));
         }
@@ -123,6 +135,7 @@ public class IntegerToRomanTest {
 
     @Test
     public void performanceConvertAlternative() {
+        //Controllo performance del metodo IntegerToRoman.convert e ConvertAlternative
         long startTime = System.currentTimeMillis();
         for(int j=0; j<1000; j++) {
             for(int i=1; i<=1000; i++) {
