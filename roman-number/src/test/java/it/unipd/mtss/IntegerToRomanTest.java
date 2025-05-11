@@ -76,6 +76,8 @@ public class IntegerToRomanTest {
     }
 
     //Metodo accessorio a reverseConvert
+    //PRE: char c che rappresenta 1 simbolo romano, fino a M
+    //POST: valore intero corrispondente al simbolo
     private static int getRomanValue(char c) {
         if (c == 'I') return 1;
         if (c == 'V') return 5;
@@ -89,6 +91,7 @@ public class IntegerToRomanTest {
 
     @Test
     public void TestReverseConvert() {
+        //Test che controlla il corretto funzionamento del metodo ReverseConvert
         for(int i=1; i<=1000; i++) {
             assertEquals(i, reverseConvert(IntegerToRoman.convert(i)));
         }
@@ -123,6 +126,8 @@ public class IntegerToRomanTest {
 
     @Test
     public void TestConvertAlternative() {
+        //Test che controlla il corretto funzionamento di convertAlternative, controllando
+        //che il valore ritornato sia uguale a quello del metodo 'originale' IntegerToRoman.convert
         for(int i=1; i<=1000; i++) {
             assertEquals(IntegerToRoman.convert(i), convertAlternative(i));
         }
@@ -130,6 +135,7 @@ public class IntegerToRomanTest {
 
     @Test
     public void performanceConvertAlternative() {
+        //Controllo performance del metodo IntegerToRoman.convert e ConvertAlternative
         long startTime = System.currentTimeMillis();
         for(int j=0; j<1000; j++) {
             for(int i=1; i<=1000; i++) {
